@@ -1,0 +1,32 @@
+% !TeX program = lualatex
+\RequirePackage{luatex85}
+
+\documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=1.00in, right=1.00in, top=1.00in, bottom=1.00in]{geometry}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes} % includes the ellipse shape
+\usetikzlibrary{graphs}
+\usetikzlibrary{graphdrawing}
+\usegdlibrary{trees}
+
+\title{Binary Trees}
+\author{Edgar Felizmenio}
+
+\begin{document}
+\begin{tikzpicture}[scale=1, font=\sffamily\small,baseline=(current bounding box.base)]
+	\tikzstyle{inode} = [shape=ellipse, draw, minimum width=1mm, minimum height=1mm]
+	\tikzstyle{enode} = [shape=rectangle, draw, minimum width=4mm, minimum height=4mm]
+	\graph [tree layout] {
+		DANIEL [inode] -- {AMOS [inode], ISAIAH [inode]};
+		AMOS -- {"" [enode], "" [enode]};
+		ISAIAH -- {EZEKIEL [inode], MALACHI [inode]};
+		EZEKIEL -- {"" [enode], "" [enode]};
+		MALACHI -- {"" [enode], "" [enode]};
+	};
+\end{tikzpicture}
+\end{document}
